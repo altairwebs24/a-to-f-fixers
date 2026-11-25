@@ -92,7 +92,13 @@ function ProjectsPage() {
       <section aria-label="A to F Fixers projects and media" className="site-container projects-grid">
         {projects.map((project) => (
           <article className="project-card" key={project.title}>
-            <div className={project.contained ? "project-media project-media-contained" : "project-media"}>
+            <div
+              className={
+                "contained" in project && project.contained
+                  ? "project-media project-media-contained"
+                  : "project-media"
+              }
+            >
               <img src={project.image} alt={project.alt} loading="lazy" />
             </div>
             <div className="project-copy">

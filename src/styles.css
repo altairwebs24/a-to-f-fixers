@@ -47,6 +47,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-brand-wash: var(--brand-wash);
   --color-brand-deep: var(--brand-deep);
+  --color-footer-background: var(--footer-background);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
   --font-sans: "DM Sans", sans-serif;
   --font-display: "Barlow Condensed", sans-serif;
 }
@@ -87,6 +91,10 @@
   --sidebar-ring: oklch(0.56 0.095 202);
   --brand-wash: oklch(0.955 0.026 215);
   --brand-deep: oklch(0.4 0.09 224);
+  --footer-background: oklch(0.08 0 0);
+  --footer-foreground: oklch(0.94 0 0);
+  --footer-muted: oklch(0.76 0.005 250);
+  --footer-border: oklch(0.32 0.003 250);
 }
 
 .dark {
@@ -124,6 +132,10 @@
   --sidebar-ring: oklch(0.77 0.12 198);
   --brand-wash: oklch(0.27 0.03 235);
   --brand-deep: oklch(0.82 0.07 210);
+  --footer-background: oklch(0.08 0 0);
+  --footer-foreground: oklch(0.94 0 0);
+  --footer-muted: oklch(0.76 0.005 250);
+  --footer-border: oklch(0.32 0.003 250);
 }
 
 @layer base {
@@ -273,7 +285,7 @@
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.92fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   padding-block: 4.75rem 5.25rem;
@@ -517,8 +529,8 @@
 }
 
 .site-footer {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: var(--color-footer-background);
+  color: var(--color-footer-foreground);
 }
 
 .footer-main {
@@ -530,14 +542,14 @@
 
 .footer-brand .brand-wordmark,
 .footer-brand .brand-wordmark span:last-child {
-  color: var(--color-background);
+  color: var(--color-footer-foreground);
 }
 
 .footer-brand p,
 .footer-contact p {
   max-width: 21rem;
   margin: 1rem 0 0;
-  color: oklch(0.86 0.012 225);
+  color: var(--color-footer-muted);
   font-size: 0.85rem;
   line-height: 1.65;
 }
@@ -561,7 +573,7 @@
 
 .footer-links a,
 .footer-contact a {
-  color: var(--color-background);
+  color: var(--color-footer-foreground);
   font-size: 0.88rem;
   text-decoration: none;
 }
@@ -573,8 +585,8 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid oklch(0.42 0.022 245);
-  color: oklch(0.82 0.012 225);
+  border-top: 1px solid var(--color-footer-border);
+  color: var(--color-footer-muted);
   font-size: 0.75rem;
 }
 
@@ -852,7 +864,6 @@
   }
 
   .home-hero {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.95fr);
     gap: 2rem;
   }
 
