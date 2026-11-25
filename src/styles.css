@@ -51,6 +51,7 @@
   --color-footer-foreground: var(--footer-foreground);
   --color-footer-muted: var(--footer-muted);
   --color-footer-border: var(--footer-border);
+  --color-hero-video-wash: var(--hero-video-wash);
   --font-sans: "DM Sans", sans-serif;
   --font-display: "Barlow Condensed", sans-serif;
 }
@@ -95,6 +96,7 @@
   --footer-foreground: oklch(0.94 0 0);
   --footer-muted: oklch(0.76 0.005 250);
   --footer-border: oklch(0.32 0.003 250);
+  --hero-video-wash: oklch(0.96 0.02 215 / 72%);
 }
 
 .dark {
@@ -136,6 +138,7 @@
   --footer-foreground: oklch(0.94 0 0);
   --footer-muted: oklch(0.76 0.005 250);
   --footer-border: oklch(0.32 0.003 250);
+  --hero-video-wash: oklch(0.96 0.02 215 / 72%);
 }
 
 @layer base {
@@ -284,11 +287,32 @@
 }
 
 .home-hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  align-items: center;
-  gap: 1.7rem;
-  padding-block: 4.75rem 5.25rem;
+  min-height: 42rem;
+  overflow: hidden;
+  background: var(--color-brand-wash);
+}
+
+.home-hero::before {
+  position: absolute;
+  z-index: 1;
+  background: var(--color-hero-video-wash);
+  content: "";
+  inset: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: inherit;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-block: 4rem;
 }
 
 .hero-copy {
@@ -340,6 +364,11 @@
   line-height: 1.75;
 }
 
+.hero-description,
+.hero-service-note {
+  color: var(--color-foreground);
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -366,6 +395,9 @@
 }
 
 .hero-video {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -374,6 +406,7 @@
 
 .hero-media-label {
   position: absolute;
+  z-index: 2;
   right: 0.8rem;
   bottom: 0.8rem;
   max-width: calc(100% - 1.6rem);
@@ -867,10 +900,6 @@
     padding-inline: 0.8rem;
   }
 
-  .home-hero {
-    gap: 1.4rem;
-  }
-
   .hero-title {
     font-size: 4.5rem;
   }
@@ -935,11 +964,18 @@
     display: inline-flex;
   }
 
-  .home-hero,
   .page-intro {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.8rem;
     padding-block: 3rem 3.3rem;
+  }
+
+  .home-hero {
+    min-height: 34rem;
+  }
+
+  .hero-content {
+    padding-block: 2.5rem;
   }
 
   .hero-title {
@@ -955,10 +991,6 @@
 
   .hero-actions {
     margin-top: 1.35rem;
-  }
-
-  .hero-media {
-    aspect-ratio: 4 / 3;
   }
 
   .section-heading-row,

@@ -30,8 +30,22 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <SiteShell>
-      <section className="site-container home-hero">
-        <div className="hero-copy">
+      <section className="home-hero">
+        <video
+          aria-hidden="true"
+          autoPlay
+          className="hero-video"
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={media.tiledRoof}
+          tabIndex={-1}
+        >
+          <source src={media.heroVideo} type="video/mp4" />
+        </video>
+        <div className="site-container hero-content">
+          <div className="hero-copy">
           <p className="eyebrow">Cape Town · Home &amp; business fixes</p>
           <h1 className="hero-title">
             Your home deserves <em>the best.</em>
@@ -40,25 +54,7 @@ function Index() {
             From a fresh coat of paint to a roof that needs attention, A to F Fixers brings the
             right hands to the work.
           </p>
-        </div>
-        <div className="hero-media">
-          <video
-            className="hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            preload="metadata"
-            poster={media.tiledRoof}
-            aria-label="A to F Fixers carrying out home repair work"
-          >
-            <source src={media.heroVideo} type="video/mp4" />
-            Your browser does not support the video.
-          </video>
-          <span className="hero-media-label">A to F Fixers · On the job</span>
-        </div>
-        <div>
+          </div>
           <div className="hero-actions">
             <Button asChild className="site-button">
               <a href="tel:+27826046918">
@@ -71,6 +67,7 @@ function Index() {
           </div>
           <p className="hero-service-note">Roofing · Painting · Building · And the in-between</p>
         </div>
+        <span className="hero-media-label">A to F Fixers · On the job</span>
       </section>
 
       <section className="service-band">
