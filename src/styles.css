@@ -91,7 +91,7 @@
   --sidebar-ring: oklch(0.56 0.095 202);
   --brand-wash: oklch(0.955 0.026 215);
   --brand-deep: oklch(0.4 0.09 224);
-  --footer-background: oklch(0.08 0 0);
+  --footer-background: oklch(0 0 0);
   --footer-foreground: oklch(0.94 0 0);
   --footer-muted: oklch(0.76 0.005 250);
   --footer-border: oklch(0.32 0.003 250);
@@ -132,7 +132,7 @@
   --sidebar-ring: oklch(0.77 0.12 198);
   --brand-wash: oklch(0.27 0.03 235);
   --brand-deep: oklch(0.82 0.07 210);
-  --footer-background: oklch(0.08 0 0);
+  --footer-background: oklch(0 0 0);
   --footer-foreground: oklch(0.94 0 0);
   --footer-muted: oklch(0.76 0.005 250);
   --footer-border: oklch(0.32 0.003 250);
@@ -287,8 +287,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
+  gap: 1.7rem;
   padding-block: 4.75rem 5.25rem;
+}
+
+.hero-copy {
+  max-width: 58rem;
 }
 
 .eyebrow {
@@ -864,7 +868,7 @@
   }
 
   .home-hero {
-    gap: 2rem;
+    gap: 1.4rem;
   }
 
   .hero-title {

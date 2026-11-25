@@ -31,7 +31,7 @@ function Index() {
   return (
     <SiteShell>
       <section className="site-container home-hero">
-        <div>
+        <div className="hero-copy">
           <p className="eyebrow">Cape Town · Home &amp; business fixes</p>
           <h1 className="hero-title">
             Your home deserves <em>the best.</em>
@@ -40,17 +40,6 @@ function Index() {
             From a fresh coat of paint to a roof that needs attention, A to F Fixers brings the
             right hands to the work.
           </p>
-          <div className="hero-actions">
-            <Button asChild className="site-button">
-              <a href="tel:+27826046918">
-                Let’s talk about it <ArrowRight aria-hidden="true" />
-              </a>
-            </Button>
-            <Button asChild className="site-button" variant="outline">
-              <a href="/services">See our services</a>
-            </Button>
-          </div>
-          <p className="hero-service-note">Roofing · Painting · Building · And the in-between</p>
         </div>
         <div className="hero-media">
           <video
@@ -68,6 +57,19 @@ function Index() {
             Your browser does not support the video.
           </video>
           <span className="hero-media-label">A to F Fixers · On the job</span>
+        </div>
+        <div>
+          <div className="hero-actions">
+            <Button asChild className="site-button">
+              <a href="tel:+27826046918">
+                Let’s talk about it <ArrowRight aria-hidden="true" />
+              </a>
+            </Button>
+            <Button asChild className="site-button" variant="outline">
+              <a href="/services">See our services</a>
+            </Button>
+          </div>
+          <p className="hero-service-note">Roofing · Painting · Building · And the in-between</p>
         </div>
       </section>
 
